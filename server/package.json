@@ -53,7 +53,7 @@
     "joi": "^17.13.3",
     "node-cron": "^4.2.1",
     "node-opcua": "^2.148.0",
-    "node-opcua-certificate-manager": "^2.143.0",
+    "node-opcua-certificate-manager": "^2.164.2",
     "node-opcua-crypto": "^4.16.0",
     "nodemailer": "^8.0.2",
     "pg": "^8.13.3",
