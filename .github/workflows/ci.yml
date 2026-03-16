@@ -200,7 +200,7 @@ jobs:
           echo "css=$css" >> "$GITHUB_OUTPUT"
 
       - name: Comment bundle size report
-        uses: actions/github-script@v7
+        uses: actions/github-script@v8
         with:
           script: |
             function formatBytes(bytes) {
