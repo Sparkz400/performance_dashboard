@@ -1,5 +1,5 @@
 # Stage 1: Build client
-FROM node:20-alpine AS client-build
+FROM node:25-alpine AS client-build
 WORKDIR /app/client
 COPY client/package.json client/package-lock.json ./
 RUN npm ci
@@ -7,7 +7,7 @@ COPY client/ ./
 RUN npm run build
 
 # Stage 2: Build server
-FROM node:20-alpine AS server-build
+FROM node:25-alpine AS server-build
 WORKDIR /app/server
 COPY server/package.json server/package-lock.json ./
 RUN npm ci
@@ -15,13 +15,13 @@ COPY server/ ./
 RUN npm run build
 
 # Stage 3: Install production server dependencies
-FROM node:20-alpine AS server-production-deps
+FROM node:25-alpine AS server-production-deps
 WORKDIR /app/server
 COPY server/package.json server/package-lock.json ./
 RUN npm ci --omit=dev
 
 # Stage 4: Production
-FROM node:20-alpine AS production
+FROM node:25-alpine AS production
 WORKDIR /app/server
 
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
