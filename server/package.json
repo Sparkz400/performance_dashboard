@@ -50,7 +50,7 @@
     "express-session": "^1.18.1",
     "helmet": "^8.0.0",
     "ioredis": "^5.10.0",
-    "joi": "^17.13.3",
+    "joi": "^18.0.2",
     "node-cron": "^4.2.1",
     "node-opcua": "^2.148.0",
     "node-opcua-certificate-manager": "^2.143.0",
