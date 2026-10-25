@@ -56,7 +56,7 @@
     "node-cron": "^4.2.1",
     "node-opcua": "^2.148.0",
     "node-opcua-certificate-manager": "^2.143.0",
-    "node-opcua-crypto": "^4.16.0",
+    "node-opcua-crypto": "^6.2.3",
     "nodemailer": "^10.2.1",
     "pg": "^8.13.3",
     "prom-client": "^15.1.3",
