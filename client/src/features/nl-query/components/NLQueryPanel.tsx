@@ -202,7 +202,7 @@ export default function NLQueryPanel() {
           onClick={() => setOpen(true)}
           sx={{
             position: 'fixed',
-            bottom: 24,
+            bottom: 96,
             right: 24,
             zIndex: 1200,
             background: 'linear-gradient(135deg, #6C63FF, #FF6B9D)',

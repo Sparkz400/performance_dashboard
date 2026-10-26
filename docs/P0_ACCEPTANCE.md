@@ -4,7 +4,7 @@ First implementation wave, [PR #40](https://github.com/Sparkz400/performance_das
 record, not physical-machine or production qualification. The remaining work is
 tracked in [TODO](../TODO.md); the original inspection remains in [research](RESEARCH.md).
 
-Local final validation: 119 server tests, 65 client tests and 12 Chromium browser
+Local final validation: 120 server tests, 65 client tests and 12 Chromium browser
 tests passed. Both production builds, client type checking, formatting and the
 three database/telemetry scripts passed. Lint has no errors; warnings remain,
 predominantly existing documentation/unused-symbol warnings. The client build
@@ -20,7 +20,7 @@ still reports large bundles; performance work is tracked separately.
 | Quality propagation / H03, partial | Bad/mixed and empty buckets are gaps; raw zero remains zero. Reports use whole-query statistics and disclose counts/resolution. Isolated samples remain visible; legend choices survive data refresh. | Database and browser fixtures above. | KPI/tooltip/source-time consistency across every widget is still open. Exports still need H04's bounded, quality-aware contract. |
 | Edge / F04 | Transfer and ingest mutations return 501. Background transfers are disabled. Read-only settings distinguish retained pending records from previously marked transfers; canonical central history is unavailable. Existing queue data is retained. | experimentalBoundaries unit test; real API/browser Edge Status flow. | H08 must implement authenticated durable central ingestion before re-enabling transfers. This does not disable the separate local acquisition spool. |
 | AI / F05 | Suggestions only; no database query execution. API marks provider/evidence/queryExecuted, discards generated chart data, fails clearly without configuration and bounds provider calls. UI discloses Anthropic before sending. | Mocked-provider and missing-key unit tests; Chromium disclosure flow (no external request). | No live paid/provider request was made. Grounded, authorized data questions remain X01. |
-| Harness / F10, partial | Database mocks are at module scope. App bootstrap has its own beforeAll budget; HTTP assertions keep their normal timeout. | Parallel client/server coverage run: 65 client tests, 119 server tests; no nested-mock warning or first-route timeout. | Full feature-level negative authorization, durability failure injection and alarm acceptance are still required. |
+| Harness / F10, partial | Database mocks are at module scope. App bootstrap has its own beforeAll budget; HTTP assertions keep their normal timeout. | Parallel client/server coverage run: 65 client tests, 120 server tests; no nested-mock warning or first-route timeout. | Full feature-level negative authorization, durability failure injection and alarm acceptance are still required. |
 | Dependencies / F09, partial | Root workspace lock; matched Vitest/coverage v4; aligned OpenTelemetry API/SDK/exporters; updated scheduler type import. | Clean npm ci, npm ls without invalid peers, builds/type checks, unit/integration suites, real loopback span export, database/certificate tests, browser flows. | Exact-image security review and the broader access-boundary audit remain open. See dependency disposition record. |
 
 ## Reproduce
@@ -52,6 +52,12 @@ The browser suite includes real login, CSRF, machine settings, dashboard
 persistence, public-certificate and disabled-edge flows. Trend rendering uses a
 clearly synthetic API fixture, with actual SQL behavior tested separately. AI
 tests never contact Anthropic. No browser fixture is evidence from a real machine.
+
+The hosted browser run additionally exposed overlapping Add Widget/AI buttons
+and per-handshake session middleware creation. The buttons now occupy separate
+positions; one middleware instance serves each socket server. A real loopback
+socket test rejects 20 unsigned handshakes without growing session-store listeners,
+then accepts a correctly signed session. Session expiry/revocation audits remain F07/F08.
 
 ## Still open
 
