@@ -39,6 +39,8 @@ All 29 dependency PRs were reviewed. Fifteen obsolete or incompatible proposals
 were closed with reasons; fourteen compatible proposals are consolidated into this
 wave in [PR #40](https://github.com/Sparkz400/performance_dashboard/pull/40), whose
 status records integration. See [PR dispositions](docs/DEPENDENCY_REVIEW.md).
+Replacement Node 26 proposal #41 was also reviewed and closed. Docker major
+updates now require an explicit F09 support decision; minor/patch updates continue.
 
 ## Foundation
 

@@ -2,8 +2,14 @@
 
 All 29 open proposals were reviewed against the current root-workspace project.
 Compatible changes are consolidated in [PR #40](https://github.com/Sparkz400/performance_dashboard/pull/40) so one dependency
-set can be installed and tested together. Original bot branches are retained as
-review provenance when their commits were not merged verbatim.
+set can be installed and tested together. Closed pull-request history preserves
+proposal provenance even when GitHub removes the original bot branches.
+
+Dependabot generated replacement Node 26 proposal #41 during cleanup. Its two
+Docker stage changes were reviewed and declined for the same reason as #29.
+Docker major updates are now excluded from automatic proposals while Node 24 is
+the declared runtime; minor/patch updates remain enabled. A major runtime change
+requires the explicit support decision and validation tracked under F09.
 
 | PR | Disposition |
 | --- | --- |
