@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  Box,
-  Typography,
-  Tooltip,
-  FormControlLabel,
-  Switch,
-  IconButton,
-  alpha,
-} from '@mui/material';
+import { Box, Typography, Tooltip, FormControlLabel, Switch, IconButton } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
 import SaveIcon from '@mui/icons-material/Save';
 import ViewQuiltIcon from '@mui/icons-material/ViewQuilt';
@@ -91,8 +83,8 @@ const DashboardToolbar: React.FC<DashboardToolbarProps> = ({
         px: 2,
         py: 0.5,
         gap: 1,
-        background: (theme) => alpha(theme.palette.background.paper, 0.5),
-        backdropFilter: 'blur(8px)',
+        bgcolor: 'background.paper',
+        flexWrap: 'wrap',
       }}
     >
       <DashboardTabs
@@ -111,7 +103,7 @@ const DashboardToolbar: React.FC<DashboardToolbarProps> = ({
       <TimeRangePicker />
       <AutoRefreshIndicator />
 
-      <Box sx={{ width: 1, height: 24, bgcolor: 'divider', mx: 0.5 }} />
+      <Box sx={{ width: '1px', flexShrink: 0, height: 24, bgcolor: 'divider', mx: 0.5 }} />
 
       <NotificationCenter />
 
@@ -125,7 +117,7 @@ const DashboardToolbar: React.FC<DashboardToolbarProps> = ({
               sx={{
                 border: '1px solid',
                 borderColor: 'divider',
-                borderRadius: '10px',
+                borderRadius: '5px',
                 width: 36,
                 height: 36,
               }}
@@ -149,7 +141,7 @@ const DashboardToolbar: React.FC<DashboardToolbarProps> = ({
           sx={{
             border: '1px solid',
             borderColor: 'divider',
-            borderRadius: '10px',
+            borderRadius: '5px',
             width: 36,
             height: 36,
           }}
@@ -158,7 +150,7 @@ const DashboardToolbar: React.FC<DashboardToolbarProps> = ({
         </IconButton>
       </Tooltip>
 
-      <Box sx={{ width: 1, height: 24, bgcolor: 'divider', mx: 0.5 }} />
+      <Box sx={{ width: '1px', flexShrink: 0, height: 24, bgcolor: 'divider', mx: 0.5 }} />
 
       <Tooltip title="Save Changes to Server">
         <span>

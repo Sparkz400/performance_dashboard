@@ -8,6 +8,7 @@ import {
   Tooltip,
   Divider,
   Typography,
+  useTheme,
 } from '@mui/material';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import ImageIcon from '@mui/icons-material/Image';
@@ -46,6 +47,7 @@ const ExportMenu: React.FC<ExportMenuProps> = ({
   dashboard,
   onDashboardImported,
 }) => {
+  const theme = useTheme();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -54,7 +56,7 @@ const ExportMenu: React.FC<ExportMenuProps> = ({
     if (!widgetRef?.current) return;
     try {
       const dataUrl = await toPng(widgetRef.current, {
-        backgroundColor: '#1A1D27',
+        backgroundColor: theme.palette.background.default,
         pixelRatio: 2,
       });
       saveAs(dataUrl, `${widgetTitle.replace(/\s+/g, '-').toLowerCase()}-${Date.now()}.png`);
@@ -175,8 +177,10 @@ const ExportMenu: React.FC<ExportMenuProps> = ({
           size="small"
           onClick={(e) => setAnchorEl(e.currentTarget)}
           sx={{
-            background: 'rgba(131,131,131,0.8)',
-            '&:hover': { background: 'rgba(100,100,100,0.9)' },
+            bgcolor: 'background.paper',
+            border: '1px solid',
+            borderColor: 'divider',
+            '&:hover': { bgcolor: 'action.hover' },
           }}
         >
           <FileDownloadIcon fontSize="small" />

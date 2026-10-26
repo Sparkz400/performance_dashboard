@@ -70,7 +70,7 @@ const TimeRangePicker: React.FC = () => {
               sx={{
                 ...(timeRange.preset === value && {
                   bgcolor: 'primary.main',
-                  color: '#fff',
+                  color: 'primary.contrastText',
                   '&:hover': { bgcolor: 'primary.dark' },
                 }),
               }}

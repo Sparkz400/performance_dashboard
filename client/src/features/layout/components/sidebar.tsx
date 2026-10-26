@@ -13,7 +13,6 @@ import {
   Typography,
   Badge,
   Collapse,
-  alpha,
   CircularProgress,
 } from '@mui/material';
 import { useTheme as useMuiTheme } from '@mui/material/styles';
@@ -196,7 +195,7 @@ const ResponsiveSidebar: React.FC<ResponsiveSidebarProps> = ({ open, onToggle, o
           height: '100vh',
           width: open ? 'auto' : '56px',
           transition: 'width 0.3s ease',
-          borderRight: `1px solid ${alpha(theme.palette.divider, 0.1)}`,
+          borderRight: `1px solid ${theme.palette.divider}`,
         },
       }}
       sx={{ flexShrink: 0 }}
@@ -207,7 +206,7 @@ const ResponsiveSidebar: React.FC<ResponsiveSidebarProps> = ({ open, onToggle, o
           display: 'flex',
           flexDirection: 'column',
           height: '100%',
-          bgcolor: theme.palette.background.paper,
+          bgcolor: theme.palette.background.default,
           color: theme.palette.text.primary,
           whiteSpace: 'nowrap',
           py: 1,
@@ -244,9 +243,9 @@ const ResponsiveSidebar: React.FC<ResponsiveSidebarProps> = ({ open, onToggle, o
                 py: 1.5,
                 justifyContent: open ? 'flex-start' : 'center',
                 '&.Mui-selected': {
-                  bgcolor: alpha(theme.palette.primary.main, 0.1),
+                  bgcolor: theme.palette.background.paper,
                   '&:hover': {
-                    bgcolor: alpha(theme.palette.primary.main, 0.2),
+                    bgcolor: theme.palette.action.hover,
                   },
                   '& .MuiListItemIcon-root': {
                     color: theme.palette.primary.main,
@@ -290,9 +289,9 @@ const ResponsiveSidebar: React.FC<ResponsiveSidebarProps> = ({ open, onToggle, o
                   py: 1.5,
                   justifyContent: open ? 'flex-start' : 'center',
                   '&.Mui-selected': {
-                    bgcolor: alpha(theme.palette.primary.main, 0.1),
+                    bgcolor: theme.palette.background.paper,
                     '&:hover': {
-                      bgcolor: alpha(theme.palette.primary.main, 0.2),
+                      bgcolor: theme.palette.action.hover,
                     },
                     '& .MuiListItemIcon-root': {
                       color: theme.palette.primary.main,
@@ -325,8 +324,8 @@ const ResponsiveSidebar: React.FC<ResponsiveSidebarProps> = ({ open, onToggle, o
                   py: 1.5,
                   justifyContent: open ? 'flex-start' : 'center',
                   '&.Mui-selected': {
-                    bgcolor: alpha(theme.palette.primary.main, 0.1),
-                    '&:hover': { bgcolor: alpha(theme.palette.primary.main, 0.2) },
+                    bgcolor: theme.palette.background.paper,
+                    '&:hover': { bgcolor: theme.palette.action.hover },
                     '& .MuiListItemIcon-root': { color: theme.palette.primary.main },
                     '& .MuiListItemText-primary': {
                       fontWeight: 600,
@@ -356,8 +355,8 @@ const ResponsiveSidebar: React.FC<ResponsiveSidebarProps> = ({ open, onToggle, o
                   py: 1.5,
                   justifyContent: open ? 'flex-start' : 'center',
                   '&.Mui-selected': {
-                    bgcolor: alpha(theme.palette.primary.main, 0.1),
-                    '&:hover': { bgcolor: alpha(theme.palette.primary.main, 0.2) },
+                    bgcolor: theme.palette.background.paper,
+                    '&:hover': { bgcolor: theme.palette.action.hover },
                     '& .MuiListItemIcon-root': { color: theme.palette.primary.main },
                     '& .MuiListItemText-primary': {
                       fontWeight: 600,
@@ -386,8 +385,8 @@ const ResponsiveSidebar: React.FC<ResponsiveSidebarProps> = ({ open, onToggle, o
                 py: 1.5,
                 justifyContent: open ? 'flex-start' : 'center',
                 '&.Mui-selected': {
-                  bgcolor: alpha(theme.palette.primary.main, 0.1),
-                  '&:hover': { bgcolor: alpha(theme.palette.primary.main, 0.2) },
+                  bgcolor: theme.palette.background.paper,
+                  '&:hover': { bgcolor: theme.palette.action.hover },
                   '& .MuiListItemIcon-root': { color: theme.palette.primary.main },
                   '& .MuiListItemText-primary': {
                     fontWeight: 600,
@@ -415,8 +414,8 @@ const ResponsiveSidebar: React.FC<ResponsiveSidebarProps> = ({ open, onToggle, o
                 py: 1.5,
                 justifyContent: open ? 'flex-start' : 'center',
                 '&.Mui-selected': {
-                  bgcolor: alpha(theme.palette.primary.main, 0.1),
-                  '&:hover': { bgcolor: alpha(theme.palette.primary.main, 0.2) },
+                  bgcolor: theme.palette.background.paper,
+                  '&:hover': { bgcolor: theme.palette.action.hover },
                   '& .MuiListItemIcon-root': { color: theme.palette.primary.main },
                   '& .MuiListItemText-primary': {
                     fontWeight: 600,
@@ -445,8 +444,8 @@ const ResponsiveSidebar: React.FC<ResponsiveSidebarProps> = ({ open, onToggle, o
                   py: 1.5,
                   justifyContent: open ? 'flex-start' : 'center',
                   '&.Mui-selected': {
-                    bgcolor: alpha(theme.palette.primary.main, 0.1),
-                    '&:hover': { bgcolor: alpha(theme.palette.primary.main, 0.2) },
+                    bgcolor: theme.palette.background.paper,
+                    '&:hover': { bgcolor: theme.palette.action.hover },
                     '& .MuiListItemIcon-root': { color: theme.palette.primary.main },
                     '& .MuiListItemText-primary': {
                       fontWeight: 600,
@@ -475,8 +474,8 @@ const ResponsiveSidebar: React.FC<ResponsiveSidebarProps> = ({ open, onToggle, o
                 py: 1.5,
                 justifyContent: open ? 'flex-start' : 'center',
                 '&.Mui-selected': {
-                  bgcolor: alpha(theme.palette.primary.main, 0.1),
-                  '&:hover': { bgcolor: alpha(theme.palette.primary.main, 0.2) },
+                  bgcolor: theme.palette.background.paper,
+                  '&:hover': { bgcolor: theme.palette.action.hover },
                   '& .MuiListItemIcon-root': { color: theme.palette.primary.main },
                   '& .MuiListItemText-primary': {
                     fontWeight: 600,
@@ -506,8 +505,8 @@ const ResponsiveSidebar: React.FC<ResponsiveSidebarProps> = ({ open, onToggle, o
                 py: 1.5,
                 justifyContent: open ? 'flex-start' : 'center',
                 '&.Mui-selected': {
-                  bgcolor: alpha(theme.palette.primary.main, 0.1),
-                  '&:hover': { bgcolor: alpha(theme.palette.primary.main, 0.2) },
+                  bgcolor: theme.palette.background.paper,
+                  '&:hover': { bgcolor: theme.palette.action.hover },
                   '& .MuiListItemIcon-root': { color: theme.palette.primary.main },
                   '& .MuiListItemText-primary': {
                     fontWeight: 600,
@@ -613,9 +612,9 @@ const ResponsiveSidebar: React.FC<ResponsiveSidebarProps> = ({ open, onToggle, o
                 py: 1.5,
                 justifyContent: open ? 'flex-start' : 'center',
                 '&.Mui-selected': {
-                  bgcolor: alpha(theme.palette.primary.main, 0.1),
+                  bgcolor: theme.palette.background.paper,
                   '&:hover': {
-                    bgcolor: alpha(theme.palette.primary.main, 0.2),
+                    bgcolor: theme.palette.action.hover,
                   },
                 },
               }}
@@ -639,9 +638,9 @@ const ResponsiveSidebar: React.FC<ResponsiveSidebarProps> = ({ open, onToggle, o
                 py: 1.5,
                 justifyContent: open ? 'flex-start' : 'center',
                 '&.Mui-selected': {
-                  bgcolor: alpha(theme.palette.primary.main, 0.1),
+                  bgcolor: theme.palette.background.paper,
                   '&:hover': {
-                    bgcolor: alpha(theme.palette.primary.main, 0.2),
+                    bgcolor: theme.palette.action.hover,
                   },
                 },
               }}
