@@ -365,7 +365,7 @@ export default function NLQueryPanel() {
           <TextField
             fullWidth
             size="small"
-            placeholder="Ask about your data..."
+            placeholder="Ask for a suggestion..."
             value={input}
             onChange={(e) => setInput(e.target.value)}
             onKeyDown={handleKeyDown}
@@ -375,6 +375,7 @@ export default function NLQueryPanel() {
             sx={{ '& .MuiOutlinedInput-root': { borderRadius: 2 } }}
           />
           <IconButton
+            aria-label="Send AI suggestion request"
             color="primary"
             onClick={handleSend}
             disabled={!input.trim() || loading}

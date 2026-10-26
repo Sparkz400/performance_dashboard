@@ -58,6 +58,16 @@ test("AI discloses suggestions and external processing before sending", async ({
     page.getByText(/sends your question to Anthropic/),
   ).toBeVisible();
   expect(requests).toBe(0);
+  await page
+    .getByPlaceholder("Ask for a suggestion...")
+    .fill("Explain a trend query");
+  await page
+    .getByRole("button", { name: "Send AI suggestion request" })
+    .click();
+  await expect(
+    page.getByText("AI suggestions are not configured", { exact: true }),
+  ).toBeVisible();
+  expect(requests).toBe(1);
   await page.getByRole("button", { name: "Close AI suggestions" }).click();
 });
 
