@@ -26,12 +26,18 @@ their signals, and build a shared view of a production line.
 - Display live readings and historical charts in configurable dashboards.
 - Calculate OEE from explicitly mapped machine states and production counters.
 - Preserve scalar values, source timestamps and quality information in history.
+- Retain namespace-aware signal identity and receive time for new measurements.
+- Show bounded trends over the full selected interval with quality gaps and resolution.
 - Buffer measurements on local disk and replay them after database interruptions.
 - Provide alerts, report scheduling and administration with authenticated sessions.
 
 Additional experimental screens include statistical process control, digital
 twins, recipes and compliance records. Their presence is not a support or
 certification claim; see [current status](docs/STATUS.md).
+
+Edge synchronization is disabled until canonical central ingestion is implemented.
+AI suggestions disclose external processing and do not execute measurement queries.
+See [P0 acceptance evidence](docs/P0_ACCEPTANCE.md) for the first fixes and remaining gates.
 
 ## Where it is going
 

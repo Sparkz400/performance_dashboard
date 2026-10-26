@@ -4,8 +4,8 @@ Created **2026-10-26** from a code review of `6b5556493e7c48687a43cc9d90df3aba0b
 and [primary-source research](docs/RESEARCH.md). Read the [roadmap](docs/ROADMAP.md)
 for product direction, milestones and the first execution sequence.
 
-This is the **single task-status checklist**. Every item starts open; existing
-features are not being represented as newly completed work. Items marked Improve
+This is the **single task-status checklist**. Existing features are not represented
+as newly completed work. Items marked Improve
 extend or qualify existing code. New items add capabilities. Research items end
 in a decision and may legitimately recommend not building a feature.
 
@@ -27,12 +27,25 @@ all 14 workstreams simultaneously. Optional modules can remain disabled where a
 boundary task explicitly permits that; a hidden incomplete feature is not completed
 functionality.
 
+## Execution update — 2026-10-26
+
+The first P0 wave implements F02/F04/F05/H01/H02. Validation and scope are recorded
+in [P0 acceptance](docs/P0_ACCEPTANCE.md); completion links are added after integration.
+F01/F09/F10/H03 have partial progress and remain open. The next functional slice
+is F03/A01 (one real alarm-to-delivery path), followed by F06/F07/F08 and endpoint trust.
+
+All 29 dependency PRs were reviewed. Fifteen obsolete or incompatible proposals
+were closed with reasons; fourteen compatible proposals are consolidated into this
+wave, pending integration. See [PR dispositions](docs/DEPENDENCY_REVIEW.md).
+
 ## Foundation
 
 - [ ] **F01 — Capture the current product contract** · P0 · M0 · Improve · S. Depends: none.
   Done: preserve fixtures for trend truncation, same-key machines, unwired alerts/webhooks,
   edge receive and empty AI results; map enabled screens to supported, experimental or
   disabled states and link each reproduced issue to its owning task.
+  Progress: trend/machine-isolation, edge and AI regressions plus the acceptance
+  matrix are present; alarm/webhook contract fixtures remain open.
 - [ ] **F02 — Isolate SPC state and baselines** · P0 · M0 · Improve · M. Depends: F01, H01.
   Done: machine/tag/profile identities isolate baselines and rolling windows; two machines
   with identical keys and multiple profiles cannot contaminate or double-count samples.
@@ -65,12 +78,19 @@ functionality.
   Done: review dependency, container and code-scanning reports for the exact commit/image;
   fix actionable findings or record scope, mitigation and owner for accepted residual
   risk. Test outbound URLs, uploads, SVG, CSRF and secrets handling at their boundaries.
+  Progress: [dependency review](docs/DEPENDENCY_REVIEW.md), clean root install and
+  peer validation; runtime audit zero, seven moderate development-package findings.
+  Follow-up: qualify coordinated MUI, Storybook/Vite, lint, Vitest 5, virtualization,
+  grid-layout and Node major migrations; resolve development advisories with supported
+  upstream versions. Exact-image/code-scanning review and the full boundary audit remain open.
 - [ ] **F10 — Create a feature-level acceptance matrix** · P0 · M0 · Improve · M. Depends: F02, F03, F06, F07.
   Done: enabled pilot features have happy-path and failure-path evidence; distinguish
   unit, database, browser, simulator and physical-machine checks. CI success alone never
   promotes an experimental module or a new machine family to supported status. Resolve
   test-harness deprecation warnings, including nested mock declarations, before upgrades;
   investigate the first-route timeouts observed in the parallel 2026-10-26 test run.
+  Progress: top-level mocks and separate app-bootstrap budget resolve the observed
+  harness issues; [feature evidence](docs/P0_ACCEPTANCE.md) names remaining negative tests.
 
 ## Connectivity
 
@@ -129,6 +149,8 @@ functionality.
   Done: trend, tooltip, KPI and report contracts distinguish bad quality, missing samples,
   stale values and valid zero; source/receive times and known gaps remain inspectable.
   Continuous interpolation across an unknown interval is never implied without disclosure.
+  Progress: trends preserve zero/null, report whole-window statistics and disclose
+  sampled/unknown continuity; KPI and tooltip consistency across all views remains open.
 - [ ] **H04 — Stream and bound historical exports** · P1 · M2 · Improve · M. Depends: H01.
   Done: large exports use bounded memory, cancellation and query limits, retain identity,
   units, timestamps and quality, and clearly label raw versus aggregated output. Protect

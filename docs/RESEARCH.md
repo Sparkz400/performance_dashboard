@@ -2,6 +2,10 @@
 
 Research date: **2026-10-26**. Code baseline: `6b5556493e7c48687a43cc9d90df3aba0be1374e`.
 
+This is the preserved pre-fix assessment. The [P0 acceptance record](P0_ACCEPTANCE.md)
+tracks subsequent trend/SPC/identity fixes and the disabled-edge/suggestion-only AI
+boundaries; use [STATUS](STATUS.md) and [TODO](../TODO.md) for current behavior.
+
 This assessment separates code that exists, documented test coverage, gaps found
 by inspection, and proposed product opportunities. It does not certify a machine,
 deployment, security posture or regulated workflow. External product descriptions
