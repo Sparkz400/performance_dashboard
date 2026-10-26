@@ -6,9 +6,12 @@ test equipment; physical-machine and production acceptance remain open.
 
 - [[Getting Started]]
 - [[Architecture]]
+- [[Roadmap]]
 - [[FAQ]]
 - [Detailed documentation](https://github.com/Sparkz400/performance_dashboard/blob/main/docs/GETTING_STARTED.md)
 - [Current status and limits](https://github.com/Sparkz400/performance_dashboard/blob/main/docs/STATUS.md)
+- [Capability assessment and research](https://github.com/Sparkz400/performance_dashboard/blob/main/docs/RESEARCH.md)
+- [Actionable TODO backlog](https://github.com/Sparkz400/performance_dashboard/blob/main/TODO.md)
 - [Contributing](https://github.com/Sparkz400/performance_dashboard/blob/main/CONTRIBUTING.md)
 
 This wiki is published from `docs/wiki/` on `main`; direct edits are overwritten.

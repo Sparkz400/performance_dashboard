@@ -1,5 +1,8 @@
 # Architecture
 
+This page describes the current system. See the [roadmap](ROADMAP.md#technical-direction)
+for proposed contracts and the [research assessment](RESEARCH.md) for implementation gaps.
+
 ```mermaid
 flowchart LR
   Machine[OPC UA machine or simulator] --> Collector[Node.js collector]

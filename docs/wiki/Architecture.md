@@ -6,3 +6,6 @@ writing PostgreSQL history. Shared TypeScript contracts connect the workspaces.
 
 See the [architecture guide](https://github.com/Sparkz400/performance_dashboard/blob/main/docs/ARCHITECTURE.md)
 for measurement quality, durable replay, OEE boundaries and deployment limits.
+
+See [[Roadmap]] for proposed contracts, connector expansion and multi-site work.
+Those proposals do not describe functionality already supported by this architecture.

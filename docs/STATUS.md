@@ -25,6 +25,12 @@ simulator evidence do not establish physical-machine acceptance or release readi
 - The disk spool needs free space, a persistent volume and a single collector.
 - Edge/cloud synchronization, compliance, recipes, digital twins and natural-language
   features are experimental; they are not acceptance-tested as complete products.
+- The 2026-10-26 inspection identified trend-window truncation, SPC state/baseline
+  scoping gaps and incomplete alert/webhook wiring. Edge receive currently stores
+  queue records rather than canonical historian data; natural-language responses
+  contain no executed measurement-query results. See the
+  [capability assessment](RESEARCH.md#code-findings-that-change-the-priority-order)
+  and [TODO backlog](../TODO.md) for evidence and planned corrections.
 - Separate companies must use separate installations. Tenant isolation is unqualified.
 - Dependency auditing still reports moderate advisories. Security CI blocks high
   and critical runtime advisories and uploads the complete audit report; inspect
@@ -38,3 +44,6 @@ simulator evidence do not establish physical-machine acceptance or release readi
 One installation, one production line, a small set of explicitly documented
 machines and a complete shift report reconciled with independent measurements.
 Include downtime, reconnects, counter resets and database interruptions.
+
+The [roadmap](ROADMAP.md) describes staged acceptance gates and future features.
+Planned work does not expand the supported scope above.
