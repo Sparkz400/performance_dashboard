@@ -37,7 +37,8 @@ is F03/A01 (one real alarm-to-delivery path), followed by F06/F07/F08 and endpoi
 
 All 29 dependency PRs were reviewed. Fifteen obsolete or incompatible proposals
 were closed with reasons; fourteen compatible proposals are consolidated into this
-wave, pending integration. See [PR dispositions](docs/DEPENDENCY_REVIEW.md).
+wave in [PR #40](https://github.com/Sparkz400/performance_dashboard/pull/40), whose
+status records integration. See [PR dispositions](docs/DEPENDENCY_REVIEW.md).
 
 ## Foundation
 
@@ -77,6 +78,9 @@ wave, pending integration. See [PR dispositions](docs/DEPENDENCY_REVIEW.md).
   Done: negative tests cover admin/viewer, REST, tRPC, sockets, reports, shares and exports;
   machine identifiers cannot bypass authorization. Document one-company deployment
   limits and close any unintended access found before accepting the affected feature.
+  Progress: socket middleware now reuses one session parser and the validated secret;
+  a real socket regression covers unsigned rejection, signed acceptance and stable
+  session-store listener counts. The broader authorization/expiry audit is still open.
 - [ ] **F08 — Constrain public shares and embeds** · P0 · M0 · Improve · M. Depends: F07.
   Done: revocation/expiry work for page, API and live updates; shared views reveal only
   selected data, have explicit lifetime and embedding rules, and exclude administrative
