@@ -156,7 +156,7 @@ try {
   page.on("pageerror", (e) => pageErrors.push(e.message));
   await page.goto(`${frontend}/login`);
   await page.getByLabel("Username").fill("shiftadmin");
-  await page.getByLabel(/password/i).fill(password);
+  await page.getByLabel(/^password/i).fill(password);
   await page.getByRole("button", { name: /sign in|log in/i }).click();
   await page.waitForURL((url) => !url.pathname.includes("login"));
   const csrf = async (request) =>

@@ -79,7 +79,7 @@ export async function testOperator({ call, page, frontend, pool, browser, viewer
     const screen = await display.newPage();
     await screen.goto(`${frontend}/login`);
     await screen.getByLabel("Username").fill("owneddisplay");
-    await screen.getByLabel(/password/i).fill(password);
+    await screen.getByLabel(/^password/i).fill(password);
     await screen.getByRole("button", { name: /sign in|log in/i }).click();
     await screen.waitForURL("**/wallboard");
     for (const [method, path, data] of [["POST", `${base}/entries`, draft], ["POST", "/api/v1/alarms/1/acknowledge", {}], ["POST", "/api/trpc/alarm.acknowledge", { id: 1 }], ["POST", "/api/v1/production/shifts/1/reasons", {}]]) assert.equal((await call(method, path, data, display.request)).status(), 403, path);
