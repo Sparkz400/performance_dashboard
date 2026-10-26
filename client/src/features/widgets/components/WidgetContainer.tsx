@@ -150,6 +150,7 @@ SettingsDialog.displayName = 'SettingsDialog';
 // Widget Container props
 interface WidgetContainerProps {
   widget: Widget;
+  readOnly?: boolean;
   onDelete: (id: string) => void;
   layoutItem?: LayoutItem;
   commonData?: Record<string, unknown>;
@@ -157,7 +158,7 @@ interface WidgetContainerProps {
 
 // Main Widget Container with industrial surfaces, fullscreen, export, and animation
 const WidgetContainer = memo<WidgetContainerProps>(
-  ({ widget, onDelete, layoutItem, commonData }) => {
+  ({ widget, onDelete, layoutItem, commonData, readOnly = false }) => {
     const updateWidgetConfig = useWidgetStore((s) => s.updateWidgetConfig);
     const fullscreenWidgetId = useWidgetStore((s) => s.fullscreenWidgetId);
     const setFullscreenWidget = useWidgetStore((s) => s.setFullscreenWidget);
@@ -272,7 +273,7 @@ const WidgetContainer = memo<WidgetContainerProps>(
               zIndex: 10,
             }}
           >
-            <AnnotationPanel widgetId={widget.id} />
+            {!readOnly && <AnnotationPanel widgetId={widget.id} />}
             <ExportMenu widgetRef={containerRef} widgetTitle={widgetMeta.title || widget.type} />
             <Tooltip title={isFullscreen ? 'Exit fullscreen' : 'Fullscreen'}>
               <IconButton
@@ -293,40 +294,45 @@ const WidgetContainer = memo<WidgetContainerProps>(
                 )}
               </IconButton>
             </Tooltip>
-            <Tooltip title="Widget Settings">
-              <IconButton
-                onClick={handleOpenSettings}
-                sx={{
-                  bgcolor: 'background.paper',
-                  border: '1px solid',
-                  borderColor: 'divider',
-                  '&:hover': { bgcolor: 'action.hover' },
-                }}
-                size="small"
-                className="no-drag"
-              >
-                <SettingsIcon fontSize="small" />
-              </IconButton>
-            </Tooltip>
-            <Tooltip title="Remove Widget">
-              <IconButton
-                onClick={handleDeleteClick}
-                sx={{
-                  bgcolor: 'background.paper',
-                  border: '1px solid',
-                  borderColor: 'divider',
-                  '&:hover': { background: 'rgba(200,0,0,0.7)' },
-                }}
-                size="small"
-                className="no-drag"
-              >
-                <DeleteIcon fontSize="small" />
-              </IconButton>
-            </Tooltip>
+            {!readOnly && (
+              <>
+                <Tooltip title="Widget Settings">
+                  <IconButton
+                    onClick={handleOpenSettings}
+                    sx={{
+                      bgcolor: 'background.paper',
+                      border: '1px solid',
+                      borderColor: 'divider',
+                      '&:hover': { bgcolor: 'action.hover' },
+                    }}
+                    size="small"
+                    className="no-drag"
+                  >
+                    <SettingsIcon fontSize="small" />
+                  </IconButton>
+                </Tooltip>
+                <Tooltip title="Remove Widget">
+                  <IconButton
+                    onClick={handleDeleteClick}
+                    sx={{
+                      bgcolor: 'background.paper',
+                      border: '1px solid',
+                      borderColor: 'divider',
+                      '&:hover': { background: 'rgba(200,0,0,0.7)' },
+                    }}
+                    size="small"
+                    className="no-drag"
+                  >
+                    <DeleteIcon fontSize="small" />
+                  </IconButton>
+                </Tooltip>
+              </>
+            )}
           </Box>
         </Fade>
       ),
       [
+        readOnly,
         handleOpenSettings,
         handleDeleteClick,
         toggleFullscreen,

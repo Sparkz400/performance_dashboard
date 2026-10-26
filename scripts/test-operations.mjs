@@ -9,7 +9,10 @@ import { chromium } from "@playwright/test";
 
 const image = process.argv[2];
 const previousImage = process.argv[3] || image;
-assert.ok(image, "Usage: node scripts/test-operations.mjs IMAGE [PREVIOUS_IMAGE]");
+assert.ok(
+  image,
+  "Usage: node scripts/test-operations.mjs IMAGE [PREVIOUS_IMAGE]",
+);
 const id = randomUUID().replaceAll("-", "").slice(0, 12),
   source = `pd-ops-${id}`,
   restored = `${source}-restore`,

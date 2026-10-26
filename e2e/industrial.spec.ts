@@ -37,6 +37,7 @@ async function fixtures(page: Page) {
     layout: [{ i: "trend", x: 0, y: 0, w: 12, h: 10 }],
   };
   await page.route("**/socket.io/**", (route) => route.abort());
+  await page.routeWebSocket(/\/socket\.io\//, (socket) => socket.close());
   await page.route("**/api/**", async (route) => {
     const path = new URL(route.request().url()).pathname.replace("/api/v1", "");
     let json: unknown = [];
@@ -282,7 +283,9 @@ for (const mode of ["light", "dark"] as const) {
     await expect(
       page.getByText("Production wallboard", { exact: true }),
     ).toBeVisible();
-    await expect(page.getByText("unknown", { exact: true })).toBeVisible();
+    await expect(
+      page.getByRole("heading", { name: "Unknown", exact: true }),
+    ).toBeVisible();
     await page.screenshot({
       path: testInfo.outputPath(`wallboard-mobile-${mode}.png`),
       fullPage: true,
