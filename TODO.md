@@ -29,8 +29,9 @@ functionality.
 
 ## Execution update — 2026-10-26
 
-The first P0 wave implements F02/F04/F05/H01/H02. Validation and scope are recorded
-in [P0 acceptance](docs/P0_ACCEPTANCE.md); completion links are added after integration.
+The first P0 wave implements and tests F02/F04/F05/H01/H02 in
+[PR #40](https://github.com/Sparkz400/performance_dashboard/pull/40). Validation and
+scope are recorded in [P0 acceptance](docs/P0_ACCEPTANCE.md).
 F01/F09/F10/H03 have partial progress and remain open. The next functional slice
 is F03/A01 (one real alarm-to-delivery path), followed by F06/F07/F08 and endpoint trust.
 
@@ -46,22 +47,28 @@ wave, pending integration. See [PR dispositions](docs/DEPENDENCY_REVIEW.md).
   disabled states and link each reproduced issue to its owning task.
   Progress: trend/machine-isolation, edge and AI regressions plus the acceptance
   matrix are present; alarm/webhook contract fixtures remain open.
-- [ ] **F02 — Isolate SPC state and baselines** · P0 · M0 · Improve · M. Depends: F01, H01.
+- [x] **F02 — Isolate SPC state and baselines** · P0 · M0 · Improve · M. Depends: F01, H01.
   Done: machine/tag/profile identities isolate baselines and rolling windows; two machines
   with identical keys and multiple profiles cannot contaminate or double-count samples.
   Keep SPC explicitly experimental until Q01/Q02 qualify its statistics.
+  Completed: [PR #40](https://github.com/Sparkz400/performance_dashboard/pull/40);
+  [validation and limits](docs/P0_ACCEPTANCE.md).
 - [ ] **F03 — Prove a real alert-to-delivery path** · P0 · M0 · Improve · M. Depends: F01.
   Done: trace a simulator event through the UI-created rule, evaluator, persisted history
   and configured delivery; identify one supported engine, and disable or migrate unwired
   alternatives. Verify real event wiring separately from webhook test delivery.
-- [ ] **F04 — Make edge status honest** · P0 · M0 · Improve · S. Depends: F01.
+- [x] **F04 — Make edge status honest** · P0 · M0 · Improve · S. Depends: F01.
   Done: UI/API/docs distinguish queued, transferred and queryable-in-history states;
   unfinished central ingestion is disabled or labeled experimental; reconnect/retry
   cannot be presented as proof that a central historian contains the measurements.
-- [ ] **F05 — Make AI data access and limitations explicit** · P0 · M0 · Improve · S. Depends: F01.
+  Completed: [PR #40](https://github.com/Sparkz400/performance_dashboard/pull/40);
+  [validation and limits](docs/P0_ACCEPTANCE.md).
+- [x] **F05 — Make AI data access and limitations explicit** · P0 · M0 · Improve · S. Depends: F01.
   Done: users see whether an answer used measured data or only generated a suggestion;
   external-provider use is disclosed, unavailable configuration is clear, and unexecuted
   SQL cannot appear as a verified result. No arbitrary SQL execution is added.
+  Completed: [PR #40](https://github.com/Sparkz400/performance_dashboard/pull/40);
+  [validation and limits](docs/P0_ACCEPTANCE.md).
 - [ ] **F06 — Qualify durable acquisition failures** · P0 · M0 · Improve · L. Depends: H01.
   Done: test process termination, database outage, spool reopen, disk-full and replay
   interruption; account for every durably accepted event and expose unreceived/unknown
@@ -137,14 +144,18 @@ wave, pending integration. See [PR dispositions](docs/DEPENDENCY_REVIEW.md).
 
 ## Historian
 
-- [ ] **H01 — Establish stable signal and measurement identity** · P0 · M0 · Improve · L. Depends: none.
+- [x] **H01 — Establish stable signal and measurement identity** · P0 · M0 · Improve · L. Depends: none.
   Done: machine/source identity, namespace URI, signal type, raw value, quality, units,
   source/receive time and event ID survive storage/replay; two machines sharing a key
   remain distinct. Migrations preserve existing measurements and document ambiguous legacy rows.
-- [ ] **H02 — Represent the complete selected trend interval** · P0 · M0 · Improve · M. Depends: H01.
+  Completed: [PR #40](https://github.com/Sparkz400/performance_dashboard/pull/40);
+  [validation and limits](docs/P0_ACCEPTANCE.md).
+- [x] **H02 — Represent the complete selected trend interval** · P0 · M0 · Improve · M. Depends: H01.
   Done: dense short and long windows include the end of the requested interval through
   bounded aggregation/pagination, rather than silently returning the oldest 2,000 samples;
   responses disclose resolution and any truncation, with regression tests above the cap.
+  Completed: [PR #40](https://github.com/Sparkz400/performance_dashboard/pull/40);
+  [validation and limits](docs/P0_ACCEPTANCE.md).
 - [ ] **H03 — Carry coverage and quality into every view** · P0 · M0 · Improve · M. Depends: H02.
   Done: trend, tooltip, KPI and report contracts distinguish bad quality, missing samples,
   stale values and valid zero; source/receive times and known gaps remain inspectable.

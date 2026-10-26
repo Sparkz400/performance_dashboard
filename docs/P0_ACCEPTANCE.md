@@ -1,12 +1,12 @@
 # P0 acceptance evidence
 
-First implementation wave, 2026-10-26. This is a bounded software acceptance
+First implementation wave, [PR #40](https://github.com/Sparkz400/performance_dashboard/pull/40), 2026-10-26. This is a bounded software acceptance
 record, not physical-machine or production qualification. The remaining work is
 tracked in [TODO](../TODO.md); the original inspection remains in [research](RESEARCH.md).
 
 Local final validation: 119 server tests, 65 client tests and 12 Chromium browser
 tests passed. Both production builds, client type checking, formatting and the
-three database/telemetry scripts passed. Lint has no errors and 21 warnings,
+three database/telemetry scripts passed. Lint has no errors; warnings remain,
 predominantly existing documentation/unused-symbol warnings. The client build
 still reports large bundles; performance work is tracked separately.
 

@@ -1,7 +1,7 @@
 # Dependency PR disposition — 2026-10-26
 
 All 29 open proposals were reviewed against the current root-workspace project.
-Compatible changes are consolidated into the P0 implementation so one dependency
+Compatible changes are consolidated in [PR #40](https://github.com/Sparkz400/performance_dashboard/pull/40) so one dependency
 set can be installed and tested together. Original bot branches are retained as
 review provenance when their commits were not merged verbatim.
 
