@@ -100,7 +100,7 @@ timezone, automatic PDF/download, persisted reports after restart and forced-cra
 database-outage replay. The full scan has zero findings; exact image identity and
 historical results are in the [security review](DEPENDENCY_REVIEW.md).
 
-Local validation now includes 136 server tests, 65 client tests, the 12 existing
+Local validation now includes 136 server tests, 67 client tests, the 12 existing
 browser flows and the extended production browser workflow. Reporting tests cover
 create/edit/reload, selected machines, timezone/DST, manual and actual timer runs,
 invalid input, viewer denial and browser downloads. A standard PDF and ten-page

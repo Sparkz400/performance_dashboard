@@ -111,7 +111,7 @@ The local candidate's content digest is recorded below; hosted builds retain the
 own image identity and must not borrow this result for a different image.
 `sha256:b021d56f2a5a0dbb8e26a588ceb5850e534c1fdd5120b2453c3cfe75e9b08d34`.
 
-Validation: 136 server and 65 client unit tests, both builds, client type/lint/format,
+Validation: 136 server and 67 client unit tests, both builds, client type/lint/format,
 Storybook, Drizzle no-change generation and dev-tool compatibility checks. Twelve
 existing browser flows and the extended production workflow pass. New reporting
 checks cover template creation/editing and reload, machine/timezone settings,
