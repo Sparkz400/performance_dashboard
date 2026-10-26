@@ -35,7 +35,9 @@ it("rejects unsigned handshakes without accumulating store listeners and accepts
         timeout: 2000,
       });
       try {
-        const [error] = await once(client, "connect_error");
+        const error = await new Promise<Error>((resolve) =>
+          client.once("connect_error", resolve),
+        );
         expect(error.message).toBe("Authentication required");
       } finally {
         client.disconnect();
@@ -46,11 +48,13 @@ it("rejects unsigned handshakes without accumulating store listeners and accepts
       store.listenerCount("disconnect"),
     ]).toEqual(counts);
     const id = "owned-socket-session";
+    const cookie = new session.Cookie();
+    cookie.maxAge = 60_000;
     await new Promise<void>((resolve, reject) =>
       store.set(
         id,
         {
-          cookie: new session.Cookie({ maxAge: 60_000 }),
+          cookie,
           userId: 7,
           username: "fixture",
           userRole: "viewer",
@@ -71,12 +75,10 @@ it("rejects unsigned handshakes without accumulating store listeners and accepts
       },
     });
     try {
-      await Promise.race([
-        once(client, "connect"),
-        once(client, "connect_error").then(([error]) => {
-          throw error;
-        }),
-      ]);
+      await new Promise<void>((resolve, reject) => {
+        client.once("connect", resolve);
+        client.once("connect_error", reject);
+      });
       expect(client.connected).toBe(true);
     } finally {
       client.disconnect();
