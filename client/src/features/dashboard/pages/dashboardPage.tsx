@@ -268,14 +268,32 @@ function DashboardPageInternal(): React.JSX.Element {
       >
         {state.dashboards.length > 0 && state.selectedDashboardId && (
           <GridErrorBoundary>
-            {compact ? (
-              <Box sx={{ display: 'grid', gridTemplateColumns: 'minmax(0, 1fr)', gap: 2 }}>
-                {widgetItems}
-              </Box>
-            ) : (
+            {/* Keep widget instances mounted when the viewport changes; only their placement changes. */}
+            <Box
+              sx={
+                compact
+                  ? {
+                      '& .react-grid-layout': {
+                        height: 'auto !important',
+                        display: 'grid',
+                        gridTemplateColumns: 'minmax(0, 1fr)',
+                        gap: 2,
+                      },
+                      '& .react-grid-item': {
+                        position: 'relative !important',
+                        transform: 'none !important',
+                        width: '100% !important',
+                        minHeight: 280,
+                        left: 'auto !important',
+                        top: 'auto !important',
+                      },
+                    }
+                  : undefined
+              }
+            >
               <ResponsiveGridLayout
-                isDraggable={editable}
-                isResizable={editable}
+                isDraggable={editable && !compact}
+                isResizable={editable && !compact}
                 draggableCancel=".MuiIconButton-root, .no-drag"
                 className="layout"
                 layouts={{ lg: layout, md: layout, sm: layout, xs: layout, xxs: layout }}
@@ -283,7 +301,7 @@ function DashboardPageInternal(): React.JSX.Element {
                 cols={{ lg: 12, md: 12, sm: 12, xs: 12, xxs: 12 }}
                 rowHeight={35}
                 onLayoutChange={(currentLayout: readonly LayoutItem[]) => {
-                  if (!editable) return;
+                  if (!editable || compact) return;
                   const normalize = (items: readonly LayoutItem[]) =>
                     items
                       .map(({ i, x, y, w, h, minW, minH, maxW, maxH }) => ({
@@ -309,7 +327,7 @@ function DashboardPageInternal(): React.JSX.Element {
               >
                 {widgetItems}
               </ResponsiveGridLayout>
-            )}
+            </Box>
           </GridErrorBoundary>
         )}
 

@@ -522,6 +522,8 @@ try {
   const sessions = [];
   const login = async (session) => {
     if (session.lastLogin) {
+      if (session.page.viewportSize().width < 1100)
+        await session.page.getByRole("button", { name: "More", exact: true }).click();
       const [loggedOut] = await Promise.all([
         session.page.waitForResponse(
           (response) =>

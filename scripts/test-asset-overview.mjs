@@ -334,9 +334,7 @@ await dailyFixture(async ({ pool, call, users, actors, frontend, expect }) => {
     fullPage: true,
   });
   await page.setViewportSize({ width: 1440, height: 1000 });
-  await page
-    .getByRole("button", { name: "Expand navigation", exact: true })
-    .click();
+  await expect(page.getByLabel("Language / Sprache")).toBeVisible();
   await page.getByLabel("Language / Sprache").click();
   await page.getByRole("option", { name: "Deutsch", exact: true }).click();
   await page.setViewportSize({ width: 390, height: 844 });
