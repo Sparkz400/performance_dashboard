@@ -147,7 +147,7 @@ export default function ResponsiveSidebar({ open, onToggle, onWidthChange }: Pro
             <MenuIcon />
           </IconButton>
           {open && (
-            <Typography sx={{ px: 1, py: 1, fontWeight: 700 }}>Performance Dashboard</Typography>
+            <Typography sx={{ px: 1.5, py: 1, fontWeight: 700 }}>Performance Dashboard</Typography>
           )}
           <List>
             {links.map((link) => (
@@ -206,7 +206,7 @@ export default function ResponsiveSidebar({ open, onToggle, onWidthChange }: Pro
           <Box sx={{ flexGrow: 1 }} />
           <Divider sx={{ my: 1 }} />
           {admin && open && (
-            <Box sx={{ p: 1 }}>
+            <Box sx={{ p: 1.5 }}>
               <Typography variant="caption">{t('System Status')}</Typography>
               <Chip
                 size="small"

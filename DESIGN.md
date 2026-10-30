@@ -27,6 +27,10 @@ Use semantic theme colors for errors, warnings, success and chart limits. Orange
 identifies actions and selection, not generic machine health. Cards use 7px corners,
 controls 5px and tags 4px. Data tables use tabular numerals. Phone actions have a
 minimum 44px target; focus and reduced-motion behavior remain visible.
+The established inset highlight and shallow button relief are retained as part
+of the industrial theme, overriding the Taste preset's flat-button preference.
+Sparse or empty data views keep their real content height; do not fill them with
+decorative metrics or fabricated records.
 
 ## Evidence and state
 

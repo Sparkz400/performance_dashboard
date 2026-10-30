@@ -129,6 +129,7 @@ export default function OverviewPage() {
           <Box
             sx={{
               display: 'grid',
+              alignItems: 'start',
               gridTemplateColumns: { xs: 'minmax(0, 1fr)', lg: 'minmax(0, 3fr) minmax(0, 2fr)' },
               gap: 2,
             }}
