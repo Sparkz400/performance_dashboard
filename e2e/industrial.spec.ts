@@ -150,6 +150,7 @@ async function signIn(page: Page) {
     .first()
     .fill("fixture-only");
   await page.getByRole("button", { name: "Sign In", exact: true }).click();
+  await expect(page).toHaveURL(/\/$/);
   await page.goto("/dashboards");
   await expect(
     page.getByRole("checkbox", { name: "Pressure [Pressure]" }),
