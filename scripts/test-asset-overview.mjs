@@ -1,3 +1,4 @@
+import { selectOperation } from "./browser-navigation.mjs";
 import assert from "node:assert/strict";
 import { writeFile } from "node:fs/promises";
 import { dailyFixture } from "./daily-fixture.mjs";
@@ -246,7 +247,7 @@ await dailyFixture(async ({ pool, call, users, actors, frontend, expect }) => {
   await page.goto(frontend + "/operations");
   await page.getByLabel("Machine", { exact: true }).click();
   await page.getByRole("option", { name: "Asset line", exact: true }).click();
-  await page.getByRole("tab", { name: "Asset overview", exact: true }).click();
+  await selectOperation(page, "Asset overview");
   const motor = page.locator(
     'svg [role="button"][aria-label="Motor temperature"]',
   );

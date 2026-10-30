@@ -1,3 +1,4 @@
+import { selectOperation } from "./browser-navigation.mjs";
 import assert from "node:assert/strict";
 import { randomUUID } from "node:crypto";
 import { writeFile } from "node:fs/promises";
@@ -218,7 +219,7 @@ await dailyFixture(async ({ pool, call, users, actors, frontend, expect }) => {
   await page
     .getByRole("option", { name: "Comparison line", exact: true })
     .click();
-  await page.getByRole("tab", { name: "Comparisons", exact: true }).click();
+  await selectOperation(page, "Comparisons");
   const choose = async (label, option) => {
     await page.getByLabel(label, { exact: true }).click();
     await page.getByRole("option", { name: option }).click();

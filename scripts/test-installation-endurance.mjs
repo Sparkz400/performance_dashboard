@@ -1,3 +1,4 @@
+import { selectOperation } from "./browser-navigation.mjs";
 import assert from "node:assert/strict";
 import { spawn, execFileSync } from "node:child_process";
 import { randomBytes, randomUUID, createHash } from "node:crypto";
@@ -643,9 +644,7 @@ try {
           await session.page
             .getByRole("option", { name: "Owned endurance machine" })
             .click();
-          await session.page
-            .getByRole("tab", { name: "History", exact: true })
-            .click();
+          await selectOperation(session.page, "History");
           const start = Date.now();
           const query = new URLSearchParams({
             machineId: String(machine),

@@ -1,3 +1,4 @@
+import { selectOperation } from "./browser-navigation.mjs";
 import assert from "node:assert/strict";
 import { createServer } from "node:http";
 import { createHmac } from "node:crypto";
@@ -457,9 +458,7 @@ try {
       await page
         .getByRole("option", { name: "Cost and service line", exact: true })
         .click();
-      await page
-        .getByRole("tab", { name: "Alarm actions", exact: true })
-        .click();
+      await selectOperation(page, "Alarm actions");
       await page
         .getByLabel("Installation reference", { exact: true })
         .fill("owned-installation");
@@ -509,9 +508,7 @@ try {
         path: ".local/daily-evidence/cmms-handoff-desktop.png",
         fullPage: true,
       });
-      await page
-        .getByRole("tab", { name: "Energy and losses", exact: true })
-        .click();
+      await selectOperation(page, "Energy and losses");
       await page.getByLabel("Shift", { exact: true }).click();
       await page
         .getByRole("option", { name: "Owned cost shift", exact: true })
@@ -619,9 +616,7 @@ try {
           () => document.documentElement.scrollWidth <= innerWidth + 1,
         ),
       );
-      await page
-        .getByRole("tab", { name: "Alarmmaßnahmen", exact: true })
-        .click();
+      await selectOperation(page, "Alarmmaßnahmen");
       await page
         .getByRole("heading", { name: "Instandhaltungsübergabe", exact: true })
         .scrollIntoViewIfNeeded();
