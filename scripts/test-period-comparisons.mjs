@@ -298,8 +298,10 @@ await dailyFixture(async ({ pool, call, users, actors, frontend, expect }) => {
   const metricBox = await page
     .getByRole("heading", { name: "Gutteile je geplanter Stunde", exact: true })
     .boundingBox();
+  const contentBox = await page.getByRole("main").boundingBox();
   assert(
-    metricBox.x >= 56 && metricBox.x + metricBox.width <= 390,
+    metricBox.x >= contentBox.x + 16 &&
+      metricBox.x + metricBox.width <= contentBox.x + contentBox.width - 16,
     "Comparison metrics must fit the usable screen",
   );
   await page.screenshot({
